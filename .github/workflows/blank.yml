@@ -23,6 +23,10 @@ jobs:
       - name: Run a one-line script
         run: | 
           echo Hello, world! [$GITHUB_REF]
+      - name: Print Release tag version
+        run: echo "There is verison is $TAG_VERSION"
+        env: 
+          TAG_VERSION: ${{ github.event.release.tag_name }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
